@@ -1,0 +1,9 @@
+After trying out various filters and kernel sizes we identified that most probably the best solution is to use Gaussian
+Blur filter with kernel size of 5. From 4 images we had 164,165,166 seem to follow Standard Behavior pattern we defined,
+while 167 from the first layer L0 picked up all face pixels and in L1 face edge pixels in L2 just mounth as well in L3 i.e. last layer.
+
+The reason can be that picture 167 has specific darker face coloring compared to previous faces and that may be the reason. 
+Later we will try to match this image to the benchmark we define from 3 previous images. 
+
+For now in Stage 1 we will further try to optimize Gaussian Blur filter size 5 * 5 by assigning various 'normally-distributed'
+weights and see what happens using ImageJ Convolve specific tool where we can specify our kernel values.
