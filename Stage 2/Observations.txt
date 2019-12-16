@@ -1,0 +1,32 @@
+1.
+In Stage2 of the project as prescribed image from my dataset was choosen which had Standard Behavior and
+it was cropped Normalized Cumulative Histogram was calculated and put into tabulated form (csv files).
+
+2.
+Then one image from my dataset namely 167-11 was showing  not standard pattern as in Layer0 almost all facial 
+pixels were picked up etc. So I needed to match this image on benchmark Histogram and for that I use A plugin
+called match_to_benchmark_hist.java of PlugInFilter class. There I used matchHistograms which in my opinion 
+increased processing speed.
+
+This match_to_benchmark_hist.java take as input 'non-standard pattern image' 167-11 and adjustes it to 165-11
+(benchmark), which I also uploaded to web so plugin downloads image from web (https://i.ibb.co/FXrtCRk/165-11-cropped.png).
+As result input image is being RGB values are being adjusted in the way that when I run Layer0, Layer1, Layer2 and Layer3
+results are becoming closer to Standard Pattern images. In addition I also apply Gaussian Filters to blur some
+new patterns introduced by this 'matching'. As you can observe more facial pixels are being detected in Layer1 and not
+Layer0 as it is the case with 'Standard Pattern' images.
+
+
+3. 
+As prescribed by project description images were converted to HSV using open source plugin Color_Transformer Reference: https://imagej.nih.gov/ij/plugins/download/Color_Transformer.java
+
+After that I again matched 167-11 in HSV to benchmark in HSV. NOTE: I HAVE NOT UPLOADED HSV IMAGE TO WEB CAUSE IT
+SEEMS COLOR ENCODING WOULD NOT BE PRESERVED THERE SO I POINTED TO LOCAL PATH WHICH WILL BE DIFFERENT IN YOUR CASE
+SO PLEASE CHANGE IT ACCORDINGLY IN MY CASE IT WAS : E:/AUA/Fall 2019/CS 371 Image Processing/CS260_ImageJ_project/Stage 2/165-11_cropped_HSV.tif
+
+However using Binary levels on images have not showed any visible results most probably this layer plugin
+filter were specifically developed for RGB images.
+
+
+Referrence to used sources: 
+Reference: https://albert.rierol.net/imagej_programming_tutorials.html#How%20to%20integrate%20a%20new%20file%20format%20reader%20and%20writer    (was helpfull!!!)
+Reference: https://imagej.nih.gov/ij/plugins/download/Color_Transformer.java

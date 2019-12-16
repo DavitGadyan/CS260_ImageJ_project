@@ -1,0 +1,13 @@
+In the last Stage3 I have choosen to create some simple Face Detection algo Lips detection.
+
+For the purpose of this analysis we have used several layers to extacrt facial features and as we have seen 
+the later layer we use the more centered are our results. So I wanted to capitalize on that point and in the same time
+to demonstrate that even simple algo as we have can capture specific part of face in decent way. This is generally the rule
+in Data Science and I believe in many industries "Choose simplest thing that works"))).
+
+So basically what I have done I blurred images first in accordance with the best found average filter (Gaussian 5) and 
+run Layer3 to capture lips of a person. After that I applied edge detection algo to capture the edges of lips in
+visually more perceptive way.
+
+
+Thank you))
