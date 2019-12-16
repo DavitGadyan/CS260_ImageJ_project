@@ -1,3 +1,4 @@
+1.
 After trying out various filters and kernel sizes we identified that most probably the best solution is to use Gaussian
 Blur filter with kernel size of 5. From 4 images we had 164,165,166 seem to follow Standard Behavior pattern we defined,
 while 167 from the first layer L0 picked up all face pixels and in L1 face edge pixels in L2 just mounth as well in L3 i.e. last layer.
@@ -5,5 +6,25 @@ while 167 from the first layer L0 picked up all face pixels and in L1 face edge 
 The reason can be that picture 167 has specific darker face coloring compared to previous faces and that may be the reason. 
 Later we will try to match this image to the benchmark we define from 3 previous images. 
 
+2.
 For now in Stage 1 we will further try to optimize Gaussian Blur filter size 5 * 5 by assigning various 'normally-distributed'
 weights and see what happens using ImageJ Convolve specific tool where we can specify our kernel values.
+
+
+
+
+3. After applying plugins to extract regions in images where head is rotated we can observe that generally face region detection and
+extraction has not suffered severelly. The major difference between frontal images face regions extaction is that one hear and part of face 
+hidden by rotation is covered for so it is not detected in those rotated images by plugin. Whereas in frontal images it is visible hence extracted.
+
+Interestingly, in images with smiles there are differences practically in all layers for face region detection and extarction. Let's go through them one by one.
+
+Layer0: In one image smile has made the part of mouth side appear in 'face bounds'layer
+
+Layer1: In second layer where "the majority of the skin pixels" should be present for both images with smiles cheek and mouth side skin pixels have not been properly detected.
+
+Layer2: The cheek side skin pixels which in Standard Behaviour were present in previous layer now are moved into this layer i.e. Layer2 in pictures with smile.
+
+Layer3: In images with no smiles with Standard Behaviour in Layer3 in mouth section there was just lips detected but in images with smiles there is distinct line above
+lips and below nose, which reminds of facial expression when people smile. So this change in skin tone and placement os muscles from smile is picked up in 4 layer and potentially can be
+used for emotion detection, specifically smile detection.
